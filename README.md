@@ -38,11 +38,11 @@ Exemplo:
 
 ```json
 {
-    "age": 55,
-    "cpf": "123.456.789-00",
-    "name": "Sebastião Rodrigues Maia",
-    "income": 1000000.00,
-    "location": "Rio de Janeiro"
+  "age": 55,
+  "cpf": "123.456.789-00",
+  "name": "Sebastião Rodrigues Maia",
+  "income": 1000000.00,
+  "location": "Rio de Janeiro"
 }
 ```
 
