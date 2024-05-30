@@ -8,44 +8,13 @@ A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python -
 
 Implementação de um serviço que determina as modalidades de empréstimos que uma pessoa tem acesso. Os empréstimos são permitidos a cada pessoa com base em suas características: idade, salário e localização.
 
-Esse serviço deve ser disponibilizado no endpoint `/customer-loans`, que recebe uma requisição do tipo `POST` de acordo com o exemplo abaixo:
-
-```json
-{
-    "age": int,
-    "cpf": str,
-    "name": str,
-    "income": float,
-    "location": str
-}
-```
-
-Por fim, ela deve retornar o nome do cliente e os empréstimos que a pessoa tem acesso, no formato seguinte:
-
-```json
-{
-    "customer": str,
-    "loans": [
-        {
-            "type": str,
-            "interest_rate": int
-        },
-        ...
-        {
-            "type": str,
-            "interest_rate": int
-        }
-    ]
-}
-```
-
-Onde os tipos e taxas de cada empréstimos são:
+### Tipos e taxas de cada empréstimo
 
 - Empréstimo pessoal: Taxa de juros de 4%
 - Empréstimo consignado: Taxa de juros de 2%
 - Empréstimo com garantia: Taxa de juros de 3%
 
-Por fim, as regras de negócio a serem aplicadas:
+### Regras de Negócio
 
 - Conceder o empréstimo pessoal se o salário do cliente for igual ou inferior a R$ 3000
 - Conceder o empréstimo pessoal se o salário do cliente estiver entre R$ 3000 e R$ 5000, se o cliente tiver menos de 30 anos e residir em São Paulo (SP)
@@ -53,11 +22,62 @@ Por fim, as regras de negócio a serem aplicadas:
 - Conceder o empréstimo com garantia se o salário do cliente for igual ou inferior a R$ 3000
 - Conceder o empréstimo com garantia se o salário do cliente estiver entre R$ 3000 e R$ 5000, se o cliente tiver menos de 30 anos e residir em São Paulo (SP)
 
+### Implementação
+
+Esse serviço deve ser disponibilizado no endpoint `/customer-loans`, que recebe uma requisição do tipo `POST` de acordo com as especificações abaixo:
+
+|Chave|Valor|
+|:--:|:--:|
+|age|int|
+|cpf|str|
+|name|str|
+|income|float|
+|location|str|
+
+Exemplo:
+
+```json
+{
+    "age": 55,
+    "cpf": "123.456.789-00",
+    "name": "Sebastião Rodrigues Maia",
+    "income": 1000000.00,
+    "location": "Rio de Janeiro"
+}
+```
+
+Por fim, ela deve retornar o nome do cliente e os empréstimos que a pessoa tem acesso, com a devida especificação:
+
+|Campo|Tipo|
+|:--:|:--:|
+|customer|str|
+|loans|list of dicts with "type": str, "interest_rate": int|
+
+Exemplo:
+
+```json
+{
+"customer": "Sebastião Rodrigues Maia",
+  "loans": [
+    {
+      "type": "PERSONAL",
+      "interest_rate": 4
+    },
+    {
+      "type": "GUARANTEED",
+      "interest_rate": 3
+    },
+    {
+      "type": "CONSIGNMENT",
+      "interest_rate": 2
+    }
+  ]
+}
+```
+
 ## Executando a Aplicação
 
 ### Requisitos
-
-Para ser capaz de executar a aplicação, você precisa de:
 
 - (Docker Engine + Docker compose) ou Docker Desktop
 - Python 3.11 + pip
