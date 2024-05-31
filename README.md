@@ -4,6 +4,17 @@ Desafio proposto pela comunidade [backend-br](https://github.com/backend-br/desa
 
 A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python - Structuring Your Project](https://docs.python-guide.org/writing/structure/).
 
+## To-Do
+
+Controle interno
+
+- [X] Implementar API
+- [ ] Inserir validação de valores de entrad de acordo com os requisitos da [Implementação](#implementação)
+  - Detalhar regras de validação em [docs/regras_de_negocio](docs/regras_de_negocio.md)
+- [ ] Implementar testes
+- [ ] Dockerizar
+- [ ] Criar scripts de configuração, inicialização e afins
+
 ## Descrição do Desafio
 
 Implementação de um serviço que determina as modalidades de empréstimos que uma pessoa tem acesso. Os empréstimos são permitidos a cada pessoa com base em suas características: idade, salário e localização.
@@ -22,17 +33,17 @@ Implementação de um serviço que determina as modalidades de empréstimos que 
 - Conceder o empréstimo com garantia se o salário do cliente for igual ou inferior a R$ 3000
 - Conceder o empréstimo com garantia se o salário do cliente estiver entre R$ 3000 e R$ 5000, se o cliente tiver menos de 30 anos e residir em São Paulo (SP)
 
-### Implementação
+### Entradas e Saídas
 
 Esse serviço deve ser disponibilizado no endpoint `/customer-loans`, que recebe uma requisição do tipo `POST` de acordo com as especificações abaixo:
 
-|Chave|Valor|
-|:--:|:--:|
-|age|int|
-|cpf|str|
-|name|str|
-|income|float|
-|location|str|
+|Chave|Valor|Descrição|Requisito|
+|:--:|:--:|:--:|:--|
+|age|int|Idade|valor>=0|
+|cpf|str|CPF|Formato: XXX.XXX.XXX-XX ou XXXXXXXXXXX|
+|name|str|Nome||
+|income|float|Renda|Valor>=0|
+|location|str|Localização. Sigla de estado brasileiro.|tamanho=2|
 
 Exemplo:
 
@@ -42,7 +53,7 @@ Exemplo:
   "cpf": "123.456.789-00",
   "name": "Sebastião Rodrigues Maia",
   "income": 1000000.00,
-  "location": "Rio de Janeiro"
+  "location": "RJ"
 }
 ```
 
