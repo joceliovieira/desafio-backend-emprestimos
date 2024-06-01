@@ -3,7 +3,7 @@ from typing import List, Union, Literal
 from pydantic import BaseModel, Field, validator
 
 
-estados_br = Literal["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
+estados_br = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
 
 class Customer(BaseModel):
     """Classe que representa um cliente."""
@@ -25,7 +25,7 @@ class Customer(BaseModel):
 
     @validator("location")
     def validate_location(cls, v):
-        if v not in estados_br:
+        if v.upper() not in estados_br:
             raise ValueError("Invalid location")
         return v
     
