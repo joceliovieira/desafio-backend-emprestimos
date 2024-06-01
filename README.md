@@ -9,8 +9,8 @@ A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python -
 Controle interno
 
 - [X] Implementar API
-- [ ] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
-  - Detalhar regras de validação em [docs/regras_de_negocio](docs/regras_de_negocio.md)
+- [X] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
+  - Implementado por meio dos schemas
 - [ ] Implementar testes
 - [ ] Dockerizar
 - [ ] Criar scripts de configuração, inicialização e afins
