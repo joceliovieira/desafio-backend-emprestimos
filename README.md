@@ -2,6 +2,8 @@
 
 Desafio proposto pela comunidade [backend-br](https://github.com/backend-br/desafios). A descrição do desafio pode ser encontrada nesse mesmo repositório, [link](https://github.com/backend-br/desafios/blob/master/loans/PROBLEM.md), mas será resumido aqui.
 
+Para executar a aplicação, consultar a seção [Executando a Aplicação](#executando-a-aplicação)
+
 A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python - Structuring Your Project](https://docs.python-guide.org/writing/structure/).
 
 ## To-Do
