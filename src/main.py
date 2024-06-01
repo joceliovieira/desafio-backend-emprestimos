@@ -12,7 +12,7 @@ app = FastAPI(
     }
 )
 
-@app.post("/customer-loans")
+@app.post("/customer-loans", response_model=AvailableLoans)
 def get_loans(customer: Customer) -> AvailableLoans:
     """Verifica as regras de negócio e retorna os empréstimos disponíveis.
 
