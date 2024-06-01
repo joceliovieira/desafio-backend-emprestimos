@@ -7,7 +7,12 @@ estados_br = Literal["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA",
 class Customer(BaseModel):
     """Classe que representa um cliente."""
     age: int = Field(title="Idade", ge=0) 
-    cpf: str = Field(title="CPF", min_length=11, max_length=15, regex= r"^\d{3}\.\d{3}\.\d{3}\-\d{2}$")
+    cpf: str = Field(
+        title="CPF", 
+        min_length=11, 
+        max_length=15, 
+        regex= r"^\d{3}\.\d{3}\.\d{3}\-\d{2}$"
+    )
     name: str = Field(title="Nome", min_length=1)
     income: float = Field(title="Renda", ge=0)
     location: str = Field(
