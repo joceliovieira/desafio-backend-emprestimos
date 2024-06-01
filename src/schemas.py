@@ -1,7 +1,6 @@
-from typing import List, Union, Literal
+from typing import List, Literal, Union
 
 from pydantic import BaseModel, Field, validator
-
 
 estados_br = Literal["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
 
@@ -24,7 +23,6 @@ class Customer(BaseModel):
             raise ValueError("Invalid location")
         return v
     
-    
 
 class Loan(BaseModel):
     """Clase que representa um tipo de empréstimo."""
@@ -34,7 +32,7 @@ class Loan(BaseModel):
 class AvailableLoans(BaseModel):
     """Classe que representa a resposta dos empréstimos para um determinado cliente."""
     customer_name: str
-    loans: Union[List[Loan], None] = []
+    loans: Union[Loan, List[Loan], None] = []
 
 class ConsignmentLoan(Loan):
     """Classe que representa o Empréstimo consignado."""
