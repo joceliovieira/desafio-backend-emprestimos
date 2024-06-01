@@ -11,15 +11,15 @@ class Customer(BaseModel):
     income: float
     location: str
 
-class AvailableLoans(BaseModel):
-    """Classe que representa a resposta dos empréstimos para um determinado cliente."""
-    customer_name: str
-    loans: Union[list, None] = []
-
 class Loan(BaseModel):
     """Clase que representa um tipo de empréstimo."""
     type: str
     interest_rate: int
+
+class AvailableLoans(BaseModel):
+    """Classe que representa a resposta dos empréstimos para um determinado cliente."""
+    customer_name: str
+    loans: Union[list[Loan], None] = []
 
 class ConsignmentLoan(Loan):
     """Classe que representa o Empréstimo consignado."""
