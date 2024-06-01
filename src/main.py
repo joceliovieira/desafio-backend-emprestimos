@@ -1,49 +1,6 @@
 from fastapi import FastAPI
-from pydantic import BaseModel
 
-
-class customer(BaseModel):
-    """Classe que define o cliente."""
-    age: int
-    cpf: str
-    name: str
-    income: float
-    location: str
-
-class AvailableLoans(BaseModel):
-    """Classe que representa a resposta dos empréstimos para um determinado cliente."""
-    customer: str
-    loans: list = []
-
-class Loan():
-    def __init__(self, type: str, interest_rate: int):
-        self['type'] = type
-        self['interest_rate'] = interest_rate
-
-class PersonalLoan(Loan):
-    """Classe que representa o empréstimo pessoal."""
-    def __init__(self):
-        self.type = "PERSONAL"
-        self.interest_rate = 4
-
-class ConsignmentLoan(Loan):
-    """Classe que representa o Empréstimo consignado."""
-    def __init__(self):
-        self.type = "CONSIGNMENT"
-        self.interest_rate = 2
-
-class GuaranteedLoan(Loan):
-    """Classe que representa o Empréstimo com garantia."""
-    def __init__(self):
-        self.type = "GUARANTEED"
-        self.interest_rate = 3
-
-class Loans():
-    def __init__(self) -> None:
-        self.PersonalLoan = PersonalLoan().__dict__
-        self.ConsignmentLoan = ConsignmentLoan().__dict__
-        self.GuaranteedLoan = GuaranteedLoan().__dict__
-
+from src.schemas import AvailableLoans, Customer, Loans
 
 app = FastAPI(
     title='Empréstimos', 
@@ -56,7 +13,7 @@ app = FastAPI(
 )
 
 @app.post("/customer-loans")
-def get_loans(customer: customer) -> AvailableLoans:
+def get_loans(customer: Customer) -> AvailableLoans:
     """Verifica as regras de negócio e retorna os empréstimos disponíveis.
 
     Args:
@@ -72,7 +29,7 @@ def get_loans(customer: customer) -> AvailableLoans:
     loc = customer.location
     
     loans = Loans()
-    available_loans = AvailableLoans(customer=name)
+    available_loans = AvailableLoans(customer_name=name)
     
     if (income <= 3000):
         available_loans.loans.append(loans.PersonalLoan)
