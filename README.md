@@ -12,7 +12,6 @@ Controle interno
 
 - [X] Implementar API
 - [X] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
-  - Implementado por meio dos schemas
 - [ ] Implementar testes
 - [ ] Dockerizar
 - [ ] Criar scripts de configuração, inicialização e afins
