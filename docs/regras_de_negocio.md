@@ -28,21 +28,30 @@ Definição das regras de negócio para implementação.
 
 ## Validações
 
-Definir validações de entrada/saída a serem implementadas, com base na tabela
+Foram implementadas validações nos schemas de entrada `Customer`
 
-- age
-  - int
-  - valor>=0
-- CPF
-  - string
-  - Formato: XXX.XXX.XXX-XX ou XXXXXXXXXXX
-- name
-  - string
-  - len > 0
-- renda
-  - float
-  - Valor>=0
-- location
-  - string
-  - len = 2
-  - Valores permitidos: AC, AL, AP, AM, BA, CE, DF, ES, GO, MA, MT, MS, MG, PA, PB, PR, PE, PI, RJ, RN, RS, RO, RR, SC, SP, SE, TO
+```python
+class Customer(BaseModel):
+    """Classe que representa um cliente."""
+    age: int = Field(title="Idade", ge=0) 
+    cpf: str = Field(
+        title="CPF", 
+        min_length=11, 
+        max_length=15, 
+        regex= r"^\d{3}\.\d{3}\.\d{3}\-\d{2}$"
+    )
+    name: str = Field(title="Nome", min_length=1)
+    income: float = Field(title="Renda", ge=0)
+    location: str = Field(
+        title="Estado", 
+        description="Sigla do estado brasileiro.", 
+        min_length=2, 
+        max_length=2
+    )
+
+    @validator("location")
+    def validate_location(cls, v):
+        if v not in estados_br:
+            raise ValueError("Invalid location")
+        return v
+```
