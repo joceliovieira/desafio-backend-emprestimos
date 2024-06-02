@@ -1,30 +1,18 @@
 # Desafio backend-br  - Empréstimos
 
-Desafio proposto pela comunidade [backend-br](https://github.com/backend-br/desafios). A descrição do desafio pode ser encontrada nesse mesmo repositório, [link](https://github.com/backend-br/desafios/blob/master/loans/PROBLEM.md), mas será resumido aqui.
+Desafio proposto pela comunidade [backend-br](https://github.com/backend-br/desafios) - [descrição completa do desafio](https://github.com/backend-br/desafios/blob/master/loans/PROBLEM.md)
+
+**Descrição: Implementação de um serviço que determina as modalidades de empréstimos que uma pessoa tem acesso. Os empréstimos são permitidos a cada pessoa com base em suas características: idade, salário e localização.**
 
 Para executar a aplicação, consultar a seção [Executando a Aplicação](#executando-a-aplicação)
+
+## Referências
 
 A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python - Structuring Your Project](https://docs.python-guide.org/writing/structure/).
 
 Os testes e alguns outros recursos foram baseados no curso [FastAPI do ZERO, do @dunossauro](https://fastapidozero.dunossauro.com/).
 
-## To-Do
-
-Controle interno
-
-- [X] Implementar API
-- [X] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
-- [X] Implementar testes
-- [X] Configuração do projeto + Dockerização (pode ser atualizada após a finalização do desenvolvimento)
-  - [X] Dockerfile
-  - [X] compose.yaml
-  - [X] Dependências: versão python, pacotes, etc
-  - [X] Makefile
-  - [X] Arquivos de configuração
-
-## Descrição do Desafio
-
-Implementação de um serviço que determina as modalidades de empréstimos que uma pessoa tem acesso. Os empréstimos são permitidos a cada pessoa com base em suas características: idade, salário e localização.
+## Detalhes da Solução
 
 ### Tipos e taxas de cada empréstimo
 
