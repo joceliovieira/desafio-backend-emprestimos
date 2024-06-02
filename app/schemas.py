@@ -6,7 +6,7 @@ estados_br = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", 
 
 class Customer(BaseModel):
     """Classe que representa um cliente."""
-    age: int = Field(title="Idade", ge=0) 
+    age: int = Field(title="Idade", ge=0, examples=[40]) 
     cpf: str = Field(
         title="CPF", 
         min_length=11, 
@@ -28,7 +28,6 @@ class Customer(BaseModel):
         if v.upper() not in estados_br:
             raise ValueError("Invalid location")
         return v
-    
     
 
 class Loan(BaseModel):
