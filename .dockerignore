@@ -1,0 +1,18 @@
+# Git
+.git
+.gitignore
+
+# Python
+*.pyc
+__pycache__/
+
+# Dev
+.vscode/
+
+# Temporary files
+*.tmp
+
+# Project specific
+Makefile
+README.md
+estudos.md
