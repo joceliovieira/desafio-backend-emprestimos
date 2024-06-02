@@ -2,7 +2,6 @@ from typing import List, Union
 
 from pydantic import BaseModel, Field, validator
 
-
 estados_br = ["AC", "AL", "AP", "AM", "BA", "CE", "DF", "ES", "GO", "MA", "MT", "MS", "MG", "PA", "PB", "PR", "PE", "PI", "RJ", "RN", "RS", "RO", "RR", "SC", "SP", "SE", "TO"]
 
 class Customer(BaseModel):
@@ -18,7 +17,8 @@ class Customer(BaseModel):
     income: float = Field(title="Renda", ge=0)
     location: str = Field(
         title="Estado", 
-        description="Sigla do estado brasileiro.", 
+        description="Sigla do estado brasileiro.",
+        examples=["PB"],
         min_length=2, 
         max_length=2
     )

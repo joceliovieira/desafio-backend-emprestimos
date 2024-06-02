@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from src.schemas import AvailableLoans, Customer, Loans
+from app.schemas import AvailableLoans, Customer, Loans
 
 app = FastAPI(
     title='Empréstimos', 
