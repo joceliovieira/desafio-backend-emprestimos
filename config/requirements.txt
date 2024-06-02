@@ -1,4 +1,2 @@
 fastapi==0.111.0
-pydantic==1.10.15
-pytest
-pytest-cov
+pydantic==1.10.9
