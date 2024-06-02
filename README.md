@@ -13,8 +13,12 @@ Controle interno
 - [X] Implementar API
 - [X] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
 - [ ] Implementar testes
-- [ ] Dockerizar
-- [ ] Criar scripts de configuração, inicialização e afins
+- [ ] Configuração do projeto + Dockerização (pode ser atualizada após a finalização do desenvolvimento)
+  - [X] Dockerfile
+  - [X] compose.yaml
+  - [X] Dependências: versão python, pacotes, etc
+  - [X] Makefile
+  - [X] Arquivos de configuração
 
 ## Descrição do Desafio
 
