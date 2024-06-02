@@ -6,14 +6,16 @@ Para executar a aplicação, consultar a seção [Executando a Aplicação](#exe
 
 A estrutura do repositório foi baseada em [The Hitchhiker’s Guide to Python - Structuring Your Project](https://docs.python-guide.org/writing/structure/).
 
+Os testes e alguns outros recursos foram baseados no curso [FastAPI do ZERO, do @dunossauro](https://fastapidozero.dunossauro.com/).
+
 ## To-Do
 
 Controle interno
 
 - [X] Implementar API
 - [X] Inserir validação de valores de entrad de acordo com os requisitos da [Entradas e Saídas](#entradas-e-saídas)
-- [ ] Implementar testes
-- [ ] Configuração do projeto + Dockerização (pode ser atualizada após a finalização do desenvolvimento)
+- [X] Implementar testes
+- [X] Configuração do projeto + Dockerização (pode ser atualizada após a finalização do desenvolvimento)
   - [X] Dockerfile
   - [X] compose.yaml
   - [X] Dependências: versão python, pacotes, etc
