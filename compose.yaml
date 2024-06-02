@@ -1,0 +1,6 @@
+services:
+  loans-api:
+    build: .
+    container_name: loans-api  
+    ports:
+      - 8000:8000
